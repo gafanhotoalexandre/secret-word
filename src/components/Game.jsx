@@ -1,21 +1,35 @@
 import './Game.css';
 
-export function Game({ verifyLetter }) {
+export function Game({
+  verifyLetter,
+  pickedWord,
+  pickedCategory,
+  letters,
+  guessedLetters,
+  wrongLetters,
+  guesses,
+  score
+}) {
   return (
     <div className="game">
       <p className="points">
-        <span>Pontuação: 000</span>
+        <span>Pontuação: {score}</span>
       </p>
 
       <h1>Advinhe a palavra:</h1>
       <h3 className="tip">
-        Dica sobre a palavra: <span>Dica...</span>
+        Dica sobre a palavra: <span>{pickedCategory}</span>
       </h3>
+      <p>Você ainda tem {guesses} tentativa(s).</p>
 
       <div className="wordContainer">
-      <span className="letter">A</span>
-      <span className="letter"></span>
-        <span className="blackSquare"></span>
+        { letters.map((letter, index) => (
+          guessedLetters.includes(letter) ? (
+            <span key={index} className="letter">{letter}</span>
+          ) : (
+            <span key={index} className="blackSquare"></span>
+          )
+        )) }
       </div>
 
       <div className="letterContainer">
@@ -30,6 +44,7 @@ export function Game({ verifyLetter }) {
 
           <button
             type="button"
+            onClick={verifyLetter}
           >
             Jogar
           </button>
@@ -38,8 +53,9 @@ export function Game({ verifyLetter }) {
 
       <div className="wrongLetterContainer">
         <p>Letras já utilizadas:</p>
-        <span>a,</span>
-        <span>b,</span>
+        { wrongLetters.map((letter, index) => (
+          <span ket={index}>{letter}, </span>
+        )) }
       </div>
     </div>
   );
