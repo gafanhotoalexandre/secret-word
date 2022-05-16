@@ -61,7 +61,6 @@ export function Game({
 
           <button
             type="submit"
-            onClick={verifyLetter}
           >
             Jogar
           </button>

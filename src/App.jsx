@@ -65,15 +65,18 @@ function App() {
 
   // process the letter input
   function verifyLetter(letter) {
-    const normalizedLetter = letter.toString().toLowerCase();
+    const normalizedLetter = letter.toLowerCase();
 
     // check if letter has already been utilized
-    if (guessedLetters.includes(normalizedLetter) || wrongLetters.includes(normalizedLetter)) return;
+    if (
+      guessedLetters.includes(normalizedLetter) ||
+      wrongLetters.includes(normalizedLetter)
+    ) return;
 
     // push a guessed letter or remove a chance
     if (letters.includes(normalizedLetter)) {
       setGuessedLetters((prevGuessedLetters) => [
-        ...prevGuessedLetters, normalizedLetter
+        ...prevGuessedLetters, letter
       ]);
     } else {
       setWrongLetters((prevWrongLetters) => [
