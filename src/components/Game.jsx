@@ -18,8 +18,6 @@ export function Game({
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.log('AAA', letter);
-
     verifyLetter(letter);
 
     setLetter('');
