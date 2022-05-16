@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #ecfa00;
+}
+
 html, body {
   height: 100vh;
 }

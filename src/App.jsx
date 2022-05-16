@@ -125,6 +125,7 @@ function App() {
       { gameStage === 'end' &&
         <GameOver
           retry={retry}
+          score={score}
         /> }
     </div>
   )
